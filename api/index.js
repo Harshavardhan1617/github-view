@@ -3,6 +3,7 @@ const ejsMate = require("ejs-mate");
 const app = express();
 const path = require("path");
 
+app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");
 app.set("views", path.resolve(__dirname, "..", "views"));
 app.use(express.urlencoded({ extended: true }));
@@ -30,11 +31,15 @@ const gitRequestUser = async (usr) => {
   return user;
 };
 
-app.get("/:id", async (req, res) => {
-  const { id } = req.params;
-  const repos = await gitRequestRepos(`${id}`);
-  const user = await gitRequestUser(`${id}`);
-  res.render("home", { user, repos });
+app.get("/", (req, res) => {
+  res.render("home");
+});
+
+app.post("/", async (req, res) => {
+  const { query } = req.body;
+  const repos = await gitRequestRepos(`${query}`);
+  const user = await gitRequestUser(`${query}`);
+  res.send(user);
 });
 
 app.listen(3000, () => console.log("Server ready on port 3000."));

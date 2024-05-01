@@ -1,0 +1,20 @@
+<% layout('layouts/boilerplate') -%>
+
+<div class="container d-flex justify-content-center">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card mx-auto" style="width: 18rem">
+        <img
+          src="<%= user.avatar_url %>"
+          class="card-img-top"
+          alt="profile pic"
+        />
+        <div class="card-body">
+          <h5 class="card-title"><%= user.name %></h5>
+          <p class="card-text"><%= user.bio %></p>
+          <a href="" class="btn btn-primary"><%= user.twitter_username %></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

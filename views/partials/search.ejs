@@ -1,16 +1,29 @@
-<nav class="navbar sticky-top navbar-dark bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand">Github User Search</a>
-    <form class="d-flex" role="search" action="/" method="POST">
-      <input
-        class="form-control me-2"
-        type="search"
-        placeholder="Search"
-        name="query"
+<form
+  action="/"
+  method="post"
+  class="h-12 p-1 m-1 grow w-auto rounded-full border-2 flex justify-between pr-3"
+  style="border-color: #a6afff; background-color: #171b25"
+>
+  <input
+    class="mx-2 px-2 py-2 shadow-md outline-none text-base text-[#a6afff] w-11/12 bg-[#171b25]"
+    type="text"
+    placeholder="try 'johnpapa'"
+    name="query"
+  />
+  <button type="submit">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="w-6 h-6 text-white"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
       />
-      <button class="btn btn-outline-success" id="btn-search" type="submit">
-        Search
-      </button>
-    </form>
-  </div>
-</nav>
+    </svg>
+  </button>
+</form>

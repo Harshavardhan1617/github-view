@@ -32,7 +32,7 @@ const gitRequestUser = async (usr) => {
 };
 
 app.get("/", (req, res) => {
-  res.render("home");
+  res.render("show");
 });
 
 app.post("/", async (req, res) => {
@@ -40,6 +40,7 @@ app.post("/", async (req, res) => {
   const repos = await gitRequestRepos(`${query}`);
   const user = await gitRequestUser(`${query}`);
   res.render("show", { repos, user });
+  // res.send(query);
 });
 
 app.listen(3000, () => console.log("Server ready on port 3000."));

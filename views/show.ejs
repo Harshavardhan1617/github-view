@@ -1,26 +1,11 @@
 <% layout('layouts/boilerplate') -%>
 
 <div class="h-28 flex flex-col justify-between items-center">
-  <%- include('partials/brand') %>
+  <a href="/"><%- include('partials/brand') %></a>
+
   <div class="p-2 flex w-screen h-16 md:w-[32rem]">
     <%- include('partials/search') %>
   </div>
 </div>
 
-<div class="w-screen flex items-center justify-center mt-8">
-  <section
-    class="flex w-[90vw] rounded-lg p-2 border-2 items-center justify-around bg-white"
-  >
-    <div class="w-32 rounded-full h-32 bg-red-500 overflow-hidden">
-      <img
-        src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
-        alt="profile pic"
-      />
-    </div>
-    <div class="w-52 h-24 bg-yellow-500 px-4 py-2">
-      <h2>name</h2>
-      <h3>bio</h3>
-      <button class="btn-primary">twitter</button>
-    </div>
-  </section>
-</div>
+<%- include('partials/user') %>

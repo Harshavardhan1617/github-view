@@ -1,0 +1,33 @@
+<div class="w-screen flex items-center justify-center mt-8">
+  <section
+    class="flex w-[90vw] rounded-lg p-2 border-2 items-center justify-around bg-white md:w-[32rem]"
+  >
+    <div class="w-32 rounded-full h-32 bg-red-500 overflow-hidden">
+      <img src="<%= user.avatar_url %>" alt="profile pic" />
+    </div>
+    <div class="w-52 h-28 px-4 py-1">
+      <p class="text-2xl font-semibold text-gray-800"><%= user.name %></p>
+      <p class="text-lg text-gray-600"><%= user.bio %></p>
+      <div class="h-10 w-48 mt-1 py-1 gap-2 flex">
+        <% if(user.twitter_username) { %>
+        <a href="http://twitter.com/<%= user.twitter_username %>">
+          <i
+            class="fa-brands fa-square-x-twitter fa-lg"
+            style="color: #171b25"
+          ></i>
+        </a>
+        <% } %> <% if (user.blog) { %>
+
+        <a href="<%= user.blog %>">
+          <i class="fa-solid fa-link fa-lg" style="color: #171b25"></i>
+        </a>
+        <% } %> <% if (user.location) { %>
+        <div>
+          <i class="fa-solid fa-location-dot fa-lg" style="color: #171b25"></i>
+        </div>
+        <span class="text-black"><%= user.location %></span>
+        <% } %>
+      </div>
+    </div>
+  </section>
+</div>

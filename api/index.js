@@ -26,13 +26,13 @@ const gitRequestRepos = async (usr) => {
 const gitRequestUser = async (usr) => {
   const res = await fetch(`https://api.github.com/users/${usr}`);
   const body = await res.json();
-  const { id, avatar_url, name, location, bio, twitter_username } = body;
-  const user = { id, avatar_url, name, location, bio, twitter_username };
+  const { id, avatar_url, name, location, bio, twitter_username, blog } = body;
+  const user = { id, avatar_url, name, location, bio, twitter_username, blog };
   return user;
 };
 
 app.get("/", (req, res) => {
-  res.render("show");
+  res.render("home");
 });
 
 app.post("/", async (req, res) => {
@@ -40,7 +40,6 @@ app.post("/", async (req, res) => {
   const repos = await gitRequestRepos(`${query}`);
   const user = await gitRequestUser(`${query}`);
   res.render("show", { repos, user });
-  // res.send(query);
 });
 
 app.listen(3000, () => console.log("Server ready on port 3000."));

@@ -8,4 +8,5 @@
   </div>
 </div>
 
-<%- include('partials/user') %>
+<% if(user.name) { %> <%- include('partials/user') %> <% } %> <%-
+include('partials/repos') %>
